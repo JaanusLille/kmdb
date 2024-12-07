@@ -163,11 +163,20 @@ public class ActorServiceImpl implements ActorService {
         if (page < 0 && size < 0) {
             throw new BadRequestException("Page and size cannot be smaller than zero.");
         }
+        if (page > 100 && size > 1000) {
+            throw new BadRequestException("Page cannot be bigger than 100 and Page size cannot be bigger than 1000.");
+        }
         if (page < 0) {
             throw new BadRequestException("Page cannot be smaller than zero.");
         }
+        if (page > 100) {
+            throw new BadRequestException("Page cannot be bigger than 100.");
+        }
         if (size < 0) {
             throw new BadRequestException("Page size cannot be smaller than zero.");
+        }
+        if (size > 1000) {
+            throw new BadRequestException("Page size cannot be bigger than 1000.");
         }
     }
 }
