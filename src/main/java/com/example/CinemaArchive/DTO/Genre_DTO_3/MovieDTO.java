@@ -1,0 +1,30 @@
+package com.example.CinemaArchive.DTO.Genre_DTO_3;
+
+
+public class MovieDTO {
+    private Long id;
+    private String title;
+
+    // Constructor
+    public MovieDTO(Long id, String title) {
+        this.id = id;
+        this.title = title;
+    }
+
+    // Getters and Setters
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+}
