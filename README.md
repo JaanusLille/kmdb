@@ -41,11 +41,11 @@
     ```
 2. Build the application:
     ```bash
-    ./mvnw clean install
+    mvn clean install
     ```
 3. Run the application:
     ```bash
-    ./mvnw spring-boot:run
+    mvn spring-boot:run
     ```
 4. Use an API client like [Postman](https://www.postman.com/) or cURL to interact with the application.
 
