@@ -158,11 +158,11 @@ public class MovieServiceImpl implements MovieService {
     @Override
     public void addActorsToMovie(Long movieId, List<Long> actorIds) {
         Movie movie = movieRepository.findById(movieId)
-            .orElseThrow(() -> new NoSuchElementException("Movie not found with id: " + movieId));
+            .orElseThrow(() -> new ResourceNotFoundException("Movie not found with id: " + movieId));
 
         for (Long actorId : actorIds) {
             Actor actor = actorRepository.findById(actorId)
-                .orElseThrow(() -> new NoSuchElementException("Actor not found with id: " + actorId));
+                .orElseThrow(() -> new ResourceNotFoundException("Actor not found with id: " + actorId));
             movie.getActors().add(actor);
         }
         movieRepository.save(movie);
@@ -171,7 +171,7 @@ public class MovieServiceImpl implements MovieService {
     @Override
     public void removeActorsFromMovie(Long movieId, List<Long> actorIds) {
         Movie movie = movieRepository.findById(movieId)
-                .orElseThrow(() -> new NoSuchElementException("Movie not found with id: " + movieId));
+                .orElseThrow(() -> new ResourceNotFoundException("Movie not found with id: " + movieId));
 
         List<Actor> actorsToRemove = actorRepository.findAllById(actorIds);
         movie.getActors().removeAll(actorsToRemove);
@@ -182,11 +182,11 @@ public class MovieServiceImpl implements MovieService {
     @Override
     public void addGenresToMovie(Long movieId, List<Long> genreIds) {
         Movie movie = movieRepository.findById(movieId)
-            .orElseThrow(() -> new NoSuchElementException("Movie not found with id: " + movieId));
+            .orElseThrow(() -> new ResourceNotFoundException("Movie not found with id: " + movieId));
 
         for (Long genreId : genreIds) {
             Genre genre = genreRepository.findById(genreId)
-                .orElseThrow(() -> new NoSuchElementException("Genre not found with id: " + genreId));
+                .orElseThrow(() -> new ResourceNotFoundException("Genre not found with id: " + genreId));
             movie.getGenres().add(genre);
         }
         movieRepository.save(movie);
@@ -195,7 +195,7 @@ public class MovieServiceImpl implements MovieService {
     @Override
     public void removeGenresFromMovie(Long movieId, List<Long> genreIds) {
         Movie movie = movieRepository.findById(movieId)
-                .orElseThrow(() -> new NoSuchElementException("Movie not found with id: " + movieId));
+                .orElseThrow(() -> new ResourceNotFoundException("Movie not found with id: " + movieId));
 
         List<Genre> genresToRemove = genreRepository.findAllById(genreIds);
         movie.getGenres().removeAll(genresToRemove);
