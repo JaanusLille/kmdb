@@ -1,0 +1,28 @@
+# Maven / Java build artifacts
+/target/
+*.jar
+*.war
+*.ear
+*.class
+
+# Logs / temp files
+*.log
+*.tmp
+
+# Local databases
+*.db
+
+# IDE / editor files
+.idea/
+.vscode/
+*.iml
+.classpath
+.project
+.settings/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Local Spring overrides
+application-local.properties
